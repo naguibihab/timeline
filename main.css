@@ -1,0 +1,177 @@
+body {
+  font: normal 16px/1.5 "Georgia, serif", sans-serif;
+  background: #fbfbfc;
+  color: #000;
+  overflow-x: hidden;
+  padding-bottom: 50px;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.blue {
+  color: #3597d3
+}
+
+.grey {
+  color: #939598;
+}
+
+/* Timeline dots */
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  background: #3597d3;
+}
+ 
+.timeline ul li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+/* Timeline elements */
+/* Parent elements */
+.timeline ul li div.content {
+  position: relative;
+  top: 215px;
+  bottom: 0;
+  width: 400px;
+  padding: 15px;
+  background: #fff;
+}
+
+.timeline ul li div.icon {
+  position: relative;
+  bottom: 0;
+  top: 260px;
+  width: 140px;
+  padding: 15px;
+  background: #fff;
+}
+
+.timeline ul li div.author {
+  position: relative;
+  bottom: 0;
+  top: 217px;
+  width: 100px;
+  background: #fff;
+}
+ 
+.timeline ul li div.content::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline .container {
+  position: absolute;
+}
+
+/* Child elements */
+.timeline .event-type {
+  font-weight: bold;
+  padding: 5px;
+  line-height: 37px;
+  position: relative;
+}
+
+/* Icon */
+.timeline .icon .event-icon {
+  font-size: 150%;
+}
+
+.timeline .icon .event-time {
+  font-size: 80%;
+  left: -6px;
+  top: -6px;
+  position: relative;
+}
+
+/* Content */
+.timeline .content .event-date .day-number {
+  font-size: 200%;
+}
+
+.timeline .content .event-date .month-year {
+  font-size: 80%;
+  left: -2px;
+  top: -6px;
+  position: relative;
+}
+
+/* Odd elements */
+.timeline ul li:nth-child(odd) div.content {
+  left: 45px;
+  box-shadow: 1px 1px 1px 1px #c3c3c3;
+}
+ 
+.timeline ul li:nth-child(odd) div.content::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #c3c3c3 transparent transparent;
+}
+
+.timeline ul li:nth-child(odd) div.icon {
+  left: -175px;
+}
+
+.timeline ul li:nth-child(odd) div.author {
+  left: 384px;
+}
+
+/* Even elements */
+.timeline ul li:nth-child(even) div.content {
+  left: -465px;
+  box-shadow: 1px 1px 1px 1px #c3c3c3;
+}
+ 
+.timeline ul li:nth-child(even) div.content::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #c3c3c3;
+}
+
+.timeline ul li:nth-child(even) div.icon {
+  left: 20px;
+}
+
+.timeline ul li:nth-child(even) div.icon .event-type {
+  left: 20px;
+}
+
+.timeline ul li:nth-child(even) div.author {
+  left: -124px;
+}
