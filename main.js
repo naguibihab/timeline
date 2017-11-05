@@ -3,6 +3,8 @@ function addTask(){
 	// Dismiss popup
 	window.location.hash = "#my-new-hash";
 
+	var months = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
 	var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	var types = ['Appointment','Meeting'];
 
@@ -11,7 +13,7 @@ function addTask(){
 	var date = new Date(dateDOM.value);
 	var dayNumber = date.getUTCDate() < 10 ? '0'+date.getUTCDate() : date.getUTCDate();
 	var dayName = days[date.getDay()];
-	var month = date.getUTCMonth() + 1;
+	var month = months[date.getUTCMonth()];
 	var year = date.getUTCFullYear();
 
 	var author = 'John Doe'; // For now this is hardcoded
@@ -53,7 +55,7 @@ function addTask(){
 			    		</span>
 			    		<span class="event-time block grey">`+timeDOM.value+`</span>
 			    	</div>
-					<div class="event-type inline ml-5">`+typeDOM.value+`</div>
+					<div class="event-type inline ml-5">`+type+`</div>
 				</div>`;
 	}
 
