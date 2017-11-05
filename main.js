@@ -1,3 +1,7 @@
+// Setting default values
+document.getElementById('date').valueAsDate = new Date();
+document.getElementById("time").defaultValue = "09:00";
+
 // Function used for adding tasks to timeline
 function addTask(){
 	// Dismiss popup
