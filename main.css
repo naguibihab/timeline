@@ -338,7 +338,7 @@ body {
   overflow: auto;
 }
 
-.popup input[type=text], .popup textarea{
+.popup input, .popup textarea{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

@@ -56,8 +56,8 @@
 	</section>
 	<section class="timeline">
 		<span class="label info-label"> Tomorrow </span>
-		<ul>
-			<li>
+		<ul id="timeline-ul">
+			<li class="timeline-li">
 				<div class="icon blue">
 					<div class="event-type inline mr-5">Appointment</div>
 					<div class="container inline">
@@ -85,7 +85,8 @@
 				</div>
 				<div class="author grey">by John Doe</div>
 			</li>
-			<li>
+			
+			<li class="timeline-li">
 				<div class="icon blue">
 					<div class="container inline">
 			    		<span class="event-icon">
@@ -123,8 +124,8 @@
 			<a class="close" href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
 			<div class="content">
 				<form>
-					<label for="date"> Date* </label><input required type="text" id="date"></input>
-					<label for="time"> Time* </label><input required type="text" id="time"></input>
+					<label for="date"> Date* </label><input required type="date" id="date"></input>
+					<label for="time"> Time* </label><input required type="time" id="time"></input>
 					<label for="title"> Title* </label><input required type="text" id="title"></input>
 
 
