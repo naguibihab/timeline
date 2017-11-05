@@ -183,7 +183,7 @@ body {
 /* Parent elements */
 .timeline ul li div.content {
   position: relative;
-  top: 240px;
+  top: 146px;
   bottom: 0;
   width: 284px;
   padding: 15px;
@@ -193,7 +193,7 @@ body {
 .timeline ul li div.icon {
   position: relative;
   bottom: 0;
-  top: 286px;
+  top: 191px;
   width: 140px;
   padding: 15px;
   background: #fff;
@@ -202,7 +202,7 @@ body {
 .timeline ul li div.author {
   position: relative;
   bottom: 0;
-  top: 242px;
+  top: 140px;
   width: 100px;
   background: #fff;
 }
