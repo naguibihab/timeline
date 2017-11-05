@@ -1,21 +1,21 @@
 {
   "name": "@projects/timeline",
   "version": "1.0.0",
-  "description": "A simple static timeline in javascript",
+  "description": "A simple static timeline in HTML",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/naguibihab/js-goodies.git"
+    "url": "git+https://github.com/naguibihab/timeline.git"
   },
   "author": "Naguib Ihab",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/naguibihab/js-goodies/issues"
+    "url": "https://github.com/naguibihab/timeline"
   },
-  "homepage": "https://github.com/naguibihab/js-goodies#readme",
+  "homepage": "https://github.com/naguibihab/timeline#readme",
   "dependencies": {
     "font-awesome": "^4.7.0",
     "less": "^2.7.3"
