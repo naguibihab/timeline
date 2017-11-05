@@ -89,43 +89,23 @@ function addRemainingHtml(timelineTasks,index){
 // This function takes the task data and returns the task HTML based on the amount of tasks
 // inside the timeline
 function constructTaskHtml(taskData){
-	// Count li elements to see if we're adding an odd or an even li
 	var timelineLength = document.getElementsByClassName('timeline-li').length;
-	var oddElement = timelineLength %2 == 0;
 
-	// Add HTML
-	var newTaskElement = `<li class="timeline-li">`;
-	// The only part that's different between odd and even tasks is the order of the
-	// .icon elements and the direction of the margin
-	if(oddElement){
-		newTaskElement += `
+	var newTaskElement = `
+			<li class="timeline-li">
 				<div class="icon blue">
 					<div class="event-type inline mr-5">`+taskData.type+`</div>
-					<div class="container inline">
+					<div class="event-icon-time container inline">
 			    		<span class="event-icon">
 			    			<i class="fa fa-calendar" aria-hidden="true"></i>
 			    		</span>
 			    		<span class="event-time block grey">`+taskData.time+`</span>
 			    	</div>
-				</div>`;
-	} else {
-		newTaskElement += `
-				<div class="icon blue">
-					<div class="container inline">
-			    		<span class="event-icon">
-			    			<i class="fa fa-calendar" aria-hidden="true"></i>
-			    		</span>
-			    		<span class="event-time block grey">`+taskData.time+`</span>
-			    	</div>
-					<div class="event-type inline ml-5">`+taskData.type+`</div>
-				</div>`;
-	}
-
-	newTaskElement += `
+				</div>
 				<div class="content">
 					<div class="event-date">
 						<span class="day-number">`+taskData.dayNumber+`</span>
-						<div class="container inline ml-10">
+						<div class="event-day-month container inline ml-10">
 							<span class="day-name block">`+taskData.dayName+`</span>
 							<span class="month-year block grey">`+taskData.month+' '+taskData.year+`</span>
 						</div>
