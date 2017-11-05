@@ -1,4 +1,6 @@
-/* Common */
+/* ----------------------------------------------------
+                          Common 
+------------------------------------------------------- */
 body {
   font: normal 16px/1.5 "Georgia, serif", sans-serif;
   background: #fbfbfc;
@@ -87,7 +89,21 @@ body {
   background-color: #d0d1d7;
 }
 
-/* Heading */
+.label {
+  padding: 5px 15px 5px 15px;
+  width: 4%;
+  margin-left: 46%;
+  font-weight: bold;
+}
+
+.info-label {
+  background-color: #3597d3;
+  color: white;
+}
+
+/* ----------------------------------------------------
+                          Heading 
+------------------------------------------------------- */
 .heading {
   margin: 25px;
 }
@@ -136,6 +152,12 @@ body {
   margin: 3px;
 }
 
+/* ----------------------------------------------------
+                          Timeline 
+------------------------------------------------------- */
+.timeline ul {
+  margin-top: 4px;
+}
 /* Timeline dots */
 .timeline ul li {
   list-style-type: none;
