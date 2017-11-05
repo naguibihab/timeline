@@ -36,7 +36,6 @@ function addTask(){
 
 	// Copying the object as we'll temper with the HTML
 	var timelineTasks = Object.assign(new Array(),document.getElementsByClassName('timeline-li'));
-	console.log(timelineTasks);
 
 	// Adding in the task
 	if(timelineTasks.length > 0){
@@ -45,7 +44,6 @@ function addTask(){
 		var timestamp = new Date(document.getElementById('timestamp-'+(timelineTasks.length-1)).value);
 		if(timestamp >= taskData.timestamp) {
 			// All tasks in the timeline are ahead of ours so we append ours at the end
-			console.log('All tasks in the timeline are ahead of ours');
 			document.getElementById('timeline-ul').innerHTML += constructTaskHtml(taskData);
 		} else {
 			// Destroying the timeline to construct it agin
@@ -57,23 +55,19 @@ function addTask(){
 				if(timestamp < taskData.timestamp) {
 					// Timestamp of the element we're iterating on is behind the one we're adding
 					// So we add ours
-					console.log('Adding ours',i);
 					newTimelineUl += constructTaskHtml(taskData);
 					// Then add the remaining tasks
 					timelineElement.innerHTML = newTimelineUl + addRemainingHtml(timelineTasks,i);
 					return;
 				} else {
-					console.log('Ours is behind');
 					newTimelineUl += timelineTasks[i].outerHTML;
 				}
 			}
 
-			console.log('Constructing the timeline',newTimelineUl)
 			timelineElement.innerHTML = newTimelineUl;
 		}
 	} else {
 		// First task, append at the end
-		console.log('first task');
 		document.getElementById('timeline-ul').innerHTML += constructTaskHtml(taskData);
 	}
 }
