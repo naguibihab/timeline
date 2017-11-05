@@ -32,17 +32,68 @@ function addTask(){
 	var descDOM = document.getElementById('desc');
 	taskData.desc = descDOM.value;
 
-	
+	taskData.timestamp = new Date(dateDOM.value + " " + taskData.time);
 
-	addTaskHtml(taskData);
+	// Copying the object as we'll temper with the HTML
+	var timelineTasks = Object.assign(new Array(),document.getElementsByClassName('timeline-li'));
+	console.log(timelineTasks);
+
+	// Adding in the task
+	if(timelineTasks.length > 0){
+		var timelineElement = document.getElementById('timeline-ul');
+
+		var timestamp = new Date(document.getElementById('timestamp-'+(timelineTasks.length-1)).value);
+		if(timestamp >= taskData.timestamp) {
+			// All tasks in the timeline are ahead of ours so we append ours at the end
+			console.log('All tasks in the timeline are ahead of ours');
+			document.getElementById('timeline-ul').innerHTML += constructTaskHtml(taskData);
+		} else {
+			// Destroying the timeline to construct it agin
+			var newTimelineUl = '';
+
+			// Figure out where we should add in the new task based on date & time
+			for(var i=0; i < timelineTasks.length; i++){
+				var timestamp = new Date(document.getElementById('timestamp-'+i).value);
+				if(timestamp < taskData.timestamp) {
+					// Timestamp of the element we're iterating on is behind the one we're adding
+					// So we add ours
+					console.log('Adding ours',i);
+					newTimelineUl += constructTaskHtml(taskData);
+					// Then add the remaining tasks
+					timelineElement.innerHTML = newTimelineUl + addRemainingHtml(timelineTasks,i);
+					return;
+				} else {
+					console.log('Ours is behind');
+					newTimelineUl += timelineTasks[i].outerHTML;
+				}
+			}
+
+			console.log('Constructing the timeline',newTimelineUl)
+			timelineElement.innerHTML = newTimelineUl;
+		}
+	} else {
+		// First task, append at the end
+		console.log('first task');
+		document.getElementById('timeline-ul').innerHTML += constructTaskHtml(taskData);
+	}
 }
 
-function addTaskHtml(taskData){
+function addRemainingHtml(timelineTasks,index){
+	var appendedRemainingTasks = '';
+	for(i=index; i<timelineTasks.length; i++){
+		appendedRemainingTasks += timelineTasks[i].outerHTML;
+	}
+	return appendedRemainingTasks;
+}
+
+// This function takes the task data and returns the task HTML based on the amount of tasks
+// inside the timeline
+function constructTaskHtml(taskData){
 	// Count li elements to see if we're adding an odd or an even li
-	var oddElement = document.getElementsByClassName('timeline-li').length %2 == 0;
-	
+	var timelineLength = document.getElementsByClassName('timeline-li').length;
+	var oddElement = timelineLength %2 == 0;
+
 	// Add HTML
-	var timelineElement = document.getElementById('timeline-ul');
 	var newTaskElement = `<li class="timeline-li">`;
 	// The only part that's different between odd and even tasks is the order of the
 	// .icon elements and the direction of the margin
@@ -79,7 +130,7 @@ function addTaskHtml(taskData){
 							<span class="month-year block grey">`+taskData.month+' '+taskData.year+`</span>
 						</div>
 					</div>
-					<div class="event-type grey"><i class="fa fa-info-circle" aria-hidden="true"></i>`+type+`</div>
+					<div class="event-type grey"><i class="fa fa-info-circle" aria-hidden="true"></i> `+taskData.title+`</div>
 					<div class="event-text grey">
 						<i class="fa fa-pencil" aria-hidden="true"></i>
 						<p class="inline">
@@ -88,7 +139,8 @@ function addTaskHtml(taskData){
 					</div>
 				</div>
 				<div class="author grey">by `+taskData.author+`</div>
+				<input type="hidden" id="timestamp-`+timelineLength+`" value="`+taskData.timestamp+`">
 			</li>`
 
-	timelineElement.innerHTML += newTaskElement;
+	return newTaskElement;
 }
