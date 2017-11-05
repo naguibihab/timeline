@@ -183,7 +183,7 @@ body {
 /* Parent elements */
 .timeline ul li div.content {
   position: relative;
-  top: 215px;
+  top: 240px;
   bottom: 0;
   width: 284px;
   padding: 15px;
@@ -193,7 +193,7 @@ body {
 .timeline ul li div.icon {
   position: relative;
   bottom: 0;
-  top: 260px;
+  top: 286px;
   width: 140px;
   padding: 15px;
   background: #fff;
@@ -202,7 +202,7 @@ body {
 .timeline ul li div.author {
   position: relative;
   bottom: 0;
-  top: 217px;
+  top: 242px;
   width: 100px;
   background: #fff;
 }
@@ -265,12 +265,12 @@ body {
 }
 
 .timeline ul li:nth-child(odd) div.author {
-  left: 384px;
+  left: 270px;
 }
 
 /* Even elements */
 .timeline ul li:nth-child(even) div.content {
-  left: -465px;
+  right: 350px;
   box-shadow: 1px 1px 1px 1px #c3c3c3;
 }
  
