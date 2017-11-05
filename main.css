@@ -84,6 +84,9 @@ body {
 .button.active {
   background-color: #3597d3;
 }
+.button.active:hover {
+  background-color: #3eadf1;
+}
 
 .button.disabled {
   background-color: #d0d1d7;
