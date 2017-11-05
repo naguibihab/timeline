@@ -3,11 +3,24 @@ function addTask(){
 	// Dismiss popup
 	window.location.hash = "#my-new-hash";
 
+	var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+	var types = ['Appointment','Meeting'];
+
 	// Caputre inputs
-	var date = document.getElementById('date');
-	var time = document.getElementById('time');
-	var title = document.getElementById('title');
-	var desc = document.getElementById('desc');
+	var dateDOM = document.getElementById('date');
+	var date = new Date(dateDOM.value);
+	var dayNumber = date.getUTCDate() < 10 ? '0'+date.getUTCDate() : date.getUTCDate();
+	var dayName = days[date.getDay()];
+	var month = date.getUTCMonth() + 1;
+	var year = date.getUTCFullYear();
+
+	var author = 'John Doe'; // For now this is hardcoded
+
+	var timeDOM = document.getElementById('time');
+	var titleDOM = document.getElementById('title');
+	var typeDOM = document.getElementById('type');
+	var type = types[typeDOM.value];
+	var descDOM = document.getElementById('desc');
 
 	// Count li elements to see if we're adding an odd or an even li
 	var oddElement = document.getElementsByClassName('timeline-li').length %2 == 0;
@@ -23,12 +36,12 @@ function addTask(){
 	if(oddElement){
 		newTaskElement += `
 				<div class="icon blue">
-					<div class="event-type inline mr-5">Appointment</div>
+					<div class="event-type inline mr-5">`+type+`</div>
 					<div class="container inline">
 			    		<span class="event-icon">
 			    			<i class="fa fa-calendar" aria-hidden="true"></i>
 			    		</span>
-			    		<span class="event-time block grey">14:45</span>
+			    		<span class="event-time block grey">`+timeDOM.value+`</span>
 			    	</div>
 				</div>`;
 	} else {
@@ -38,30 +51,30 @@ function addTask(){
 			    		<span class="event-icon">
 			    			<i class="fa fa-calendar" aria-hidden="true"></i>
 			    		</span>
-			    		<span class="event-time block grey">14:45</span>
+			    		<span class="event-time block grey">`+timeDOM.value+`</span>
 			    	</div>
-					<div class="event-type inline ml-5">Appointment</div>
+					<div class="event-type inline ml-5">`+typeDOM.value+`</div>
 				</div>`;
 	}
 
 	newTaskElement += `
 				<div class="content">
 					<div class="event-date">
-						<span class="day-number">04</span>
+						<span class="day-number">`+dayNumber+`</span>
 						<div class="container inline ml-10">
-							<span class="day-name block">Friday</span>
-							<span class="month-year block grey">april 2014</span>
+							<span class="day-name block">`+dayName+`</span>
+							<span class="month-year block grey">`+month+' '+year+`</span>
 						</div>
 					</div>
-					<div class="event-type grey"><i class="fa fa-info-circle" aria-hidden="true"></i> Appointment</div>
+					<div class="event-type grey"><i class="fa fa-info-circle" aria-hidden="true"></i>`+type+`</div>
 					<div class="event-text grey">
 						<i class="fa fa-pencil" aria-hidden="true"></i>
 						<p class="inline">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat urna volutpat odio gravida lacinia. Mauris magna eros, rhoncus eu dolor quis, porta elementum augue.
+							`+descDOM.value+`
 						</p>
 					</div>
 				</div>
-				<div class="author grey">by John Doe</div>
+				<div class="author grey">by `+author+`</div>
 			</li>`
 
 	timelineElement.innerHTML += newTaskElement;

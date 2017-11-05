@@ -312,7 +312,7 @@ body {
 }
 
 .popup {
-  margin: 35px auto;
+  margin: 5px auto;
   padding: 20px;
   background: #fff;
   border-radius: 5px;
@@ -338,7 +338,7 @@ body {
   overflow: auto;
 }
 
-.popup input, .popup textarea{
+.popup input, .popup textarea, .popup select{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

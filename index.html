@@ -57,63 +57,6 @@
 	<section class="timeline">
 		<span class="label info-label"> Tomorrow </span>
 		<ul id="timeline-ul">
-			<li class="timeline-li">
-				<div class="icon blue">
-					<div class="event-type inline mr-5">Appointment</div>
-					<div class="container inline">
-			    		<span class="event-icon">
-			    			<i class="fa fa-calendar" aria-hidden="true"></i>
-			    		</span>
-			    		<span class="event-time block grey">14:45</span>
-			    	</div>
-				</div>
-				<div class="content">
-					<div class="event-date">
-						<span class="day-number">04</span>
-						<div class="container inline ml-10">
-							<span class="day-name block">Friday</span>
-							<span class="month-year block grey">april 2014</span>
-						</div>
-					</div>
-					<div class="event-type grey"><i class="fa fa-info-circle" aria-hidden="true"></i> Appointment</div>
-					<div class="event-text grey">
-						<i class="fa fa-pencil" aria-hidden="true"></i>
-						<p class="inline">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat urna volutpat odio gravida lacinia. Mauris magna eros, rhoncus eu dolor quis, porta elementum augue.
-						</p>
-					</div>
-				</div>
-				<div class="author grey">by John Doe</div>
-			</li>
-			
-			<li class="timeline-li">
-				<div class="icon blue">
-					<div class="container inline">
-			    		<span class="event-icon">
-			    			<i class="fa fa-calendar" aria-hidden="true"></i>
-			    		</span>
-			    		<span class="event-time block grey">14:45</span>
-			    	</div>
-					<div class="event-type inline ml-5">Appointment</div>
-				</div>
-				<div class="content">
-					<div class="event-date">
-						<span class="day-number">04</span>
-						<div class="container inline ml-10">
-							<span class="day-name block">Friday</span>
-							<span class="month-year block grey">april 2014</span>
-						</div>
-					</div>
-					<div class="event-type grey"><i class="fa fa-info-circle" aria-hidden="true"></i> Appointment</div>
-					<div class="event-text grey">
-						<i class="fa fa-pencil" aria-hidden="true"></i>
-						<p class="inline">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat urna volutpat odio gravida lacinia. Mauris magna eros, rhoncus eu dolor quis, porta elementum augue.
-						</p>
-					</div>
-				</div>
-				<div class="author grey">by John Doe</div>
-			</li>
 		</ul>
 	</section>
 
@@ -123,14 +66,20 @@
 			<h2>Add Task</h2>
 			<a class="close" href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
 			<div class="content">
-				<form>
+				<form onsubmit="addTask()">
 					<label for="date"> Date* </label><input required type="date" id="date"></input>
 					<label for="time"> Time* </label><input required type="time" id="time"></input>
 					<label for="title"> Title* </label><input required type="text" id="title"></input>
 
 
+					<label for="type"> Title* </label>
+					<select id="type">
+						<option value="0" selected="selected">Appointment</option>
+						<option value="1">Meeting</option>
+					</select>
+
 					<label for="desc"> Description </label><textarea id="desc"></textarea>
-					<input type="submit" onclick="addTask()">
+					<input type="submit">
 				</form>
 			</div>
 		</div>
