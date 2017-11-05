@@ -57,8 +57,16 @@ body {
   float: left;
 }
 
-.width-25-percent{
+.width-25-percent {
   width: 25%;
+}
+
+.success-icon {
+  color: #57af99;
+}
+
+.danger-icon {
+  color: #4c5565;
 }
 
 .button {
