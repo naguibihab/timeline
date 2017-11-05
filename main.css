@@ -1,3 +1,4 @@
+/* Common */
 body {
   font: normal 16px/1.5 "Georgia, serif", sans-serif;
   background: #fbfbfc;
@@ -14,6 +15,10 @@ body {
 
 .block {
   display: block;
+}
+
+.grid-row {
+  box-sizing: border-box;
 }
 
 .ml-5 {
@@ -48,6 +53,32 @@ body {
   float: right;
 }
 
+.float-left {
+  float: left;
+}
+
+.width-25-percent{
+  width: 25%;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button.active {
+  background-color: #3597d3;
+}
+
+.button.disabled {
+  background-color: #d0d1d7;
+}
+
 /* Heading */
 .heading {
   margin: 25px;
@@ -61,7 +92,9 @@ body {
 .heading-title {
   background-color: #e7e8e9;
   padding: 10px;
-  border: 2px solid #d0d1d7;
+  border:  2px solid #d0d1d7;
+  border-bottom-width: 1px;
+  border-radius: 15px 15px 0px 0px;
 }
 
 .heading .action-buttons {
@@ -70,6 +103,29 @@ body {
 
 .heading .action-buttons i:first-child {
   margin-right: -5px;
+}
+
+.heading .heading-body {
+  font-size: 125%;
+  padding: 10px 50px 10px 50px;
+  border: 2px solid #d0d1d7;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.heading .heading-summary {
+  text-align: center
+}
+
+.heading .heading-summary i {
+  margin-right: 8px;
+}
+
+.heading .heading-buttons {
+  padding: 15px;
+}
+
+.heading .heading-buttons button {
+  margin: 3px;
 }
 
 /* Timeline dots */
